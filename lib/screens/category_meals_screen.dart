@@ -21,14 +21,20 @@ class CategoryMealsScreen extends StatelessWidget {
         .where((meal) => meal.categories.contains(categoryId))
         .toList();
 
-    print(
-        'no of actual meals :: ${DUMMY_MEALS.length} :: ${mealsForCategory} :: ${categoryId}');
     return Scaffold(
         appBar: AppBar(
           title: Text(categoryTitle),
         ),
         body: ListView.builder(
-          itemBuilder: (ctx, index) => MealItem(mealsForCategory[index].title,mealsForCategory[index].imageUrl),
+          itemBuilder: (ctx, index) {
+            return MealItem(
+              title:mealsForCategory[index].title,
+              imageUrl:mealsForCategory[index].imageUrl,
+              affordability:mealsForCategory[index].affordability,
+              complexity:mealsForCategory[index].complexity,
+              duration:mealsForCategory[index].duration,
+            );
+          },
           itemCount: mealsForCategory.length,
         ));
   }
