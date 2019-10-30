@@ -9,7 +9,8 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text(name, style: Theme.of(context).textTheme.title),
           Text(description)
