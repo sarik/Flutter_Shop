@@ -125,7 +125,7 @@ const DUMMY_MEALS = const [
       'c2',
       'c3',
     ],
-    title: 'Classic Hamburger',
+    title: 'Classic Hamburger Classic Hamburger Classic Hamburger Classic HamburgerClassic HamburgerClassic Hamburger',
     affordability: Affordability.Pricey,
     complexity: Complexity.Simple,
     imageUrl:
