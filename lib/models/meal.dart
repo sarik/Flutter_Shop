@@ -32,7 +32,7 @@ class Meal {
     @required this.categories,
     @required this.title,
     @required this.imageUrl,
-    @required this.ingredients ,
+    @required this.ingredients,
     @required this.steps,
     @required this.duration,
     @required this.complexity,
