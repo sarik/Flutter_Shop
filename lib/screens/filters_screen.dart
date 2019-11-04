@@ -36,6 +36,8 @@ class _FiltersScreenState extends State<FiltersScreen> {
     Function updateValue,
   ) {
     return SwitchListTile(
+      //activeColor: Color.fromRGBO(0, 0, 255, 0.2),
+
       title: Text(title),
       value: currentValue,
       subtitle: Text(
@@ -52,7 +54,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
         title: Text('Your Filters'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.save),
+            icon: Icon(Icons.done),
             onPressed: () {
               final selectedFilters = {
                 'gluten': _glutenFree,
@@ -68,12 +70,59 @@ class _FiltersScreenState extends State<FiltersScreen> {
       drawer: MainDrawer(),
       body: Column(
         children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(20),
-            child: Text(
-              'Adjust your meal selection.',
-              style: Theme.of(context).textTheme.title,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Flexible(
+                fit: FlexFit.tight,
+                flex: 5,
+                // padding: EdgeInsets.all(20),
+                child: FittedBox(
+                  child: Padding(
+                    padding: EdgeInsets.all(12),
+                    child: Text(
+                      'Apply Filters',
+                      style: Theme.of(context).textTheme.title,
+                    ),
+                  ),
+                ),
+              ),
+              Flexible(
+                fit: FlexFit.loose,
+                flex: 2,
+                // padding: EdgeInsets.all(20),
+                child: Container(
+                  //width: 20,
+                  child: Text(
+                    'Select All',
+
+                    // style: Theme.of(context).textTheme.title,
+                  ),
+                ),
+              ),
+              Flexible(
+                fit: FlexFit.loose,
+                flex: 3,
+                child: Container(
+                  //width: 100,
+                  child: _buildSwitchListTile(
+                    '',
+                    '',
+                    _glutenFree && _vegetarian && _vegan && _lactoseFree,
+                    (newValue) {
+                      setState(
+                        () {
+                          _glutenFree = newValue;
+                          _vegetarian = newValue;
+                          _vegan = newValue;
+                          _lactoseFree = newValue;
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
           ),
           Expanded(
             child: ListView(
